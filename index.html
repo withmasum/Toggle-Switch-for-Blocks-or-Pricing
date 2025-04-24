@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo-pricing/pricing-assets/pricing.css">
+    <title>Document</title>
+
+
+
+<style>
+    
+    .toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .toggle-switch {
+        position: relative;
+        width: 50px;
+        height: 26px;
+    }
+
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #e58c83;
+        border-radius: 50px;
+        transition: 0.4s;
+    }
+
+    .slider:before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+    }
+
+    input:checked + .slider {
+        background-color: #e58c83;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+
+    .block {
+        width: 80%;
+        max-width: 500px;
+        padding: 20px;
+        text-align: center;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: none;
+    }
+
+    .block.active {
+        display: block;
+    }
+    
+
+    
+ 
+</style>
+
+</head>
+<body>
+
+
+
+    <div class="toggle-container">
+        <span id="monthlyText">Monthly Subscription </span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="togglePrice">
+          <span class="slider"></span>
+        </label>
+        <span id="yearlyText">Yearly Subcription <br><small>*you save a lot</small></span>
+      </div>
+
+
+
+
+<div id="pricing-table-id-1">
+
+    <div class="pricing-table">
+        <div class="pricing-card">
+            <h3>Basic</h3>
+            <p class="price">$10/mo</p>
+            <ul class="features">
+                <li>✔ 10GB Storage</li>
+                <li>✔ 1 User</li>
+                <li>✔ Basic Support</li>
+            </ul>
+            <a href="#" class="btn basic">Choose Plan</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Standard</h3>
+            <p class="price">$20/mo</p>
+            <ul class="features">
+                <li>✔ 50GB Storage</li>
+                <li>✔ 5 Users</li>
+                <li>✔ Priority Support</li>
+            </ul>
+            <a href="#" class="btn standard">Choose Plan</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Premium</h3>
+            <p class="price">$50/mo</p>
+            <ul class="features">
+                <li>✔ 200GB Storage</li>
+                <li>✔ 10 Users</li>
+                <li>✔ 24/7 Support</li>
+            </ul>
+            <a href="#" class="btn premium">Choose Plan</a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<div id="pricing-table-id-2">
+
+    <div class="pricing-table">
+        <div class="pricing-card">
+            <h3>Silver</h3>
+            <p class="price">$99/yr</p>
+            <ul class="features">
+                <li>✔ 10GB Storage</li>
+                <li>✔ 1 User</li>
+                <li>✔ Basic Support</li>
+            </ul>
+            <a href="#" class="btn basic">Choose Plan</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Gold</h3>
+            <p class="price">$199/yr</p>
+            <ul class="features">
+                <li>✔ 50GB Storage</li>
+                <li>✔ 5 Users</li>
+                <li>✔ Priority Support</li>
+            </ul>
+            <a href="#" class="btn standard">Choose Plan</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Diamond</h3>
+            <p class="price">$599/yr</p>
+            <ul class="features">
+                <li>✔ 200GB Storage</li>
+                <li>✔ 10 Users</li>
+                <li>✔ 24/7 Support</li>
+            </ul>
+            <a href="#" class="btn premium">Choose Plan</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleSwitch = document.getElementById("togglePrice");
+    const block1 = document.getElementById("pricing-table-id-1");
+    const block2 = document.getElementById("pricing-table-id-2");
+
+    toggleSwitch.addEventListener("change", function () {
+        if (this.checked) {
+            block1.classList.remove("active");
+            block1.style.display = "none";
+            block2.classList.add("active");
+            block2.style.display = "block";
+        } else {
+            block2.classList.remove("active");
+            block2.style.display = "none";
+            block1.classList.add("active");
+            block1.style.display = "block";
+        }
+    });
+
+    // Initial State
+    block1.style.display = "block";
+    block2.style.display = "none";
+});
+
+
+
+</script>
+
+
+</body>
+</html>
